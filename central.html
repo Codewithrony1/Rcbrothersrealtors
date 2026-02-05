@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RC Brothers Realtors | Central Line</title>
+    
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+
+:root {
+  --logo-size: 42px;
+  --footer-logo-size: 52px;
+  --bg: #f5f1eb;
+  --ink: #1e1a16;
+  --muted: #6c635c;
+  --accent: #cc4b2c;
+  --accent-2: #0c6b5a;
+  --card: #fff9f2;
+  --shadow: 0 16px 40px rgba(21, 16, 12, 0.12);
+  --radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top, #fff5ea 0%, var(--bg) 50%, #efe5da 100%);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  width: min(1220px, 92vw);
+  margin: 0 auto;
+  padding: 20px 0 70px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(245, 241, 235, 0.92);
+  backdrop-filter: blur(12px);
+  z-index: 50;
+  border-bottom: 1px solid rgba(30, 26, 22, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 0;
+  width: min(1220px, 92vw);
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: "Fraunces", serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+
+nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-weight: 600;
+  color: var(--muted);
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  display: grid;
+  gap: 6px;
+  background: white;
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 14px 28px rgba(21, 16, 12, 0.18);
+  min-width: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 60;
+}
+
+.dropdown a {
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.dropdown a:hover {
+  background: rgba(204, 75, 44, 0.1);
+  color: var(--accent);
+}
+
+.nav-item:hover .dropdown,
+.nav-item:focus-within .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+nav a {
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  background: rgba(204, 75, 44, 0.1);
+  color: var(--accent);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  align-items: center;
+  padding: 40px 0 30px;
+}
+
+.hero h1 {
+  font-family: "Fraunces", serif;
+  font-size: clamp(32px, 5vw, 54px);
+  line-height: 1.1;
+}
+
+.hero p {
+  color: var(--muted);
+  margin: 14px 0 24px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+  background: #fff1e6;
+  color: var(--accent);
+  border: 1px solid rgba(204, 75, 44, 0.18);
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: white;
+  border: none;
+  box-shadow: var(--shadow);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.section-title {
+  font-family: "Fraunces", serif;
+  font-size: 30px;
+  margin: 40px 0 10px;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 12px 30px rgba(21, 16, 12, 0.12);
+  display: grid;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(21, 16, 12, 0.18);
+}
+
+.card img {
+  width: 100%;
+  height: 140px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 18px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--accent-2);
+}
+
+.breadcrumbs {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 20px 0;
+}
+
+.search-filter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+
+.search-filter input,
+.search-filter select,
+.form-grid input,
+.form-grid textarea,
+.form-grid select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(30, 26, 22, 0.2);
+  font-family: "Manrope", sans-serif;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.form-grid textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.contact-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  background: white;
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 24px rgba(21, 16, 12, 0.12);
+}
+
+.contact-strip strong {
+  display: block;
+}
+
+.contact-strip .contact-action {
+  margin-left: auto;
+}
+
+footer {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(30, 26, 22, 0.12);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socials span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(204, 75, 44, 0.12);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25d366;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  z-index: 60;
+}
+
+.mobile-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid rgba(30, 26, 22, 0.1);
+  display: none;
+  gap: 10px;
+  padding: 12px 16px;
+  justify-content: space-between;
+  z-index: 55;
+}
+
+.mobile-bar a {
+  flex: 1;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.mobile-bar .call {
+  background: var(--accent);
+  color: white;
+}
+
+.mobile-bar .whatsapp {
+  background: #25d366;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+}
+
+@media (max-width: 700px) {
+  .mobile-bar {
+    display: flex;
+  }
+
+  .page {
+    padding-bottom: 100px;
+  }
+}
+
+
+.sponsored-slider {
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.sponsored-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: sponsoredScroll 24s linear infinite;
+}
+
+.sponsored-card {
+  flex: 0 0 auto;
+  width: min(560px, 85vw);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.sponsored-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes sponsoredScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+.nav-item.open .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 16px 0 100px;
+  }
+
+  .card img {
+    height: 120px;
+  }
+
+  .fab {
+    right: 12px;
+    bottom: 76px;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    
+<header>
+  <div class="header-inner">
+    <div class="logo"><img src="Logo/ChatGPT_Image_Feb_1__2026__02_28_40_PM-removebg-preview.png" alt="RC Brothers Realtors logo" /><span></span></div>
+    
+<nav>
+  <a href="central/index.html">Home</a>
+  <div class="nav-item">
+    <a class="nav-link" href="central/index.html">Cities</a>
+    <div class="dropdown">
+      <a href="central/central.html">Central Line</a>
+      <a href="central/western.html">Western Line</a>
+      <a href="central/navi.html">Navi Mumbai</a>
+    </div>
+  </div>
+  <a href="central/projects.html">Projects</a>
+  <a href="index.html#about">About Us</a>
+  <a href="central/contact.html">Contact Us</a>
+</nav>
+
+  </div>
+</header>
+
+    
+    <main class="page">
+<div id="sponsored-slot"></div>
+      <div class="breadcrumbs">Home &gt; Cities &gt; Central Line</div>
+      <h1 class="section-title">Central Line Stations</h1>
+      <p class="section-subtitle">Select a station to view projects.</p>
+      <div class="cards-grid">
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Chhatrapati%20Shivaji%20Maharaj%20Terminus%20%28CSMT%29%20station%20mumbai%20railway&sig=275" alt="Chhatrapati Shivaji Maharaj Terminus (CSMT)" />
+          <span class="tag">Central Line</span>
+          <h3>Chhatrapati Shivaji Maharaj Terminus (CSMT)</h3>
+          <a class="btn btn-primary" href="central/chhatrapati-shivaji-maharaj-terminus-csmt.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Masjid%20station%20mumbai%20railway&sig=35" alt="Masjid" />
+          <span class="tag">Central Line</span>
+          <h3>Masjid</h3>
+          <a class="btn btn-primary" href="central/masjid.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Sandhurst%20Road%20station%20mumbai%20railway&sig=230" alt="Sandhurst Road" />
+          <span class="tag">Central Line</span>
+          <h3>Sandhurst Road</h3>
+          <a class="btn btn-primary" href="central/sandhurst-road.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Byculla%20station%20mumbai%20railway&sig=10" alt="Byculla" />
+          <span class="tag">Central Line</span>
+          <h3>Byculla</h3>
+          <a class="btn btn-primary" href="central/byculla.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Chinchpokli%20station%20mumbai%20railway&sig=900" alt="Chinchpokli" />
+          <span class="tag">Central Line</span>
+          <h3>Chinchpokli</h3>
+          <a class="btn btn-primary" href="central/chinchpokli.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Currey%20Road%20station%20mumbai%20railway&sig=949" alt="Currey Road" />
+          <span class="tag">Central Line</span>
+          <h3>Currey Road</h3>
+          <a class="btn btn-primary" href="central/currey-road.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Parel%20station%20mumbai%20railway&sig=527" alt="Parel" />
+          <span class="tag">Central Line</span>
+          <h3>Parel</h3>
+          <a class="btn btn-primary" href="central/parel.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Dadar%20station%20mumbai%20railway&sig=876" alt="Dadar" />
+          <span class="tag">Central Line</span>
+          <h3>Dadar</h3>
+          <a class="btn btn-primary" href="central/dadar.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Matunga%20station%20mumbai%20railway&sig=242" alt="Matunga" />
+          <span class="tag">Central Line</span>
+          <h3>Matunga</h3>
+          <a class="btn btn-primary" href="central/matunga.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Sion%20station%20mumbai%20railway&sig=155" alt="Sion" />
+          <span class="tag">Central Line</span>
+          <h3>Sion</h3>
+          <a class="btn btn-primary" href="central/sion.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Kurla%20station%20mumbai%20railway&sig=413" alt="Kurla" />
+          <span class="tag">Central Line</span>
+          <h3>Kurla</h3>
+          <a class="btn btn-primary" href="central/kurla.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Vidyavihar%20station%20mumbai%20railway&sig=829" alt="Vidyavihar" />
+          <span class="tag">Central Line</span>
+          <h3>Vidyavihar</h3>
+          <a class="btn btn-primary" href="central/vidyavihar.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Ghatkopar%20station%20mumbai%20railway&sig=332" alt="Ghatkopar" />
+          <span class="tag">Central Line</span>
+          <h3>Ghatkopar</h3>
+          <a class="btn btn-primary" href="central/ghatkopar.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Vikhroli%20station%20mumbai%20railway&sig=584" alt="Vikhroli" />
+          <span class="tag">Central Line</span>
+          <h3>Vikhroli</h3>
+          <a class="btn btn-primary" href="central/vikhroli.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Kanjurmarg%20station%20mumbai%20railway&sig=612" alt="Kanjurmarg" />
+          <span class="tag">Central Line</span>
+          <h3>Kanjurmarg</h3>
+          <a class="btn btn-primary" href="central/kanjurmarg.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Bhandup%20station%20mumbai%20railway&sig=409" alt="Bhandup" />
+          <span class="tag">Central Line</span>
+          <h3>Bhandup</h3>
+          <a class="btn btn-primary" href="central/bhandup.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Nahur%20station%20mumbai%20railway&sig=590" alt="Nahur" />
+          <span class="tag">Central Line</span>
+          <h3>Nahur</h3>
+          <a class="btn btn-primary" href="central/nahur.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Mulund%20station%20mumbai%20railway&sig=812" alt="Mulund" />
+          <span class="tag">Central Line</span>
+          <h3>Mulund</h3>
+          <a class="btn btn-primary" href="central/mulund.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Thane%20station%20mumbai%20railway&sig=110" alt="Thane" />
+          <span class="tag">Central Line</span>
+          <h3>Thane</h3>
+          <a class="btn btn-primary" href="central/thane.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Kalwa%20station%20mumbai%20railway&sig=67" alt="Kalwa" />
+          <span class="tag">Central Line</span>
+          <h3>Kalwa</h3>
+          <a class="btn btn-primary" href="central/kalwa.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Mumbra%20station%20mumbai%20railway&sig=494" alt="Mumbra" />
+          <span class="tag">Central Line</span>
+          <h3>Mumbra</h3>
+          <a class="btn btn-primary" href="central/mumbra.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Diva%20station%20mumbai%20railway&sig=508" alt="Diva" />
+          <span class="tag">Central Line</span>
+          <h3>Diva</h3>
+          <a class="btn btn-primary" href="central/diva.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Kopar%20station%20mumbai%20railway&sig=154" alt="Kopar" />
+          <span class="tag">Central Line</span>
+          <h3>Kopar</h3>
+          <a class="btn btn-primary" href="central/kopar.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Dombivli%20station%20mumbai%20railway&sig=112" alt="Dombivli" />
+          <span class="tag">Central Line</span>
+          <h3>Dombivli</h3>
+          <a class="btn btn-primary" href="central/dombivli.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Thakurli%20station%20mumbai%20railway&sig=36" alt="Thakurli" />
+          <span class="tag">Central Line</span>
+          <h3>Thakurli</h3>
+          <a class="btn btn-primary" href="central/thakurli.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Kalyan%20station%20mumbai%20railway&sig=617" alt="Kalyan" />
+          <span class="tag">Central Line</span>
+          <h3>Kalyan</h3>
+          <a class="btn btn-primary" href="central/kalyan.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Shahad%20station%20mumbai%20railway&sig=848" alt="Shahad" />
+          <span class="tag">Central Line</span>
+          <h3>Shahad</h3>
+          <a class="btn btn-primary" href="central/shahad.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Ambivli%20station%20mumbai%20railway&sig=867" alt="Ambivli" />
+          <span class="tag">Central Line</span>
+          <h3>Ambivli</h3>
+          <a class="btn btn-primary" href="central/ambivli.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Titwala%20station%20mumbai%20railway&sig=279" alt="Titwala" />
+          <span class="tag">Central Line</span>
+          <h3>Titwala</h3>
+          <a class="btn btn-primary" href="central/titwala.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Khadavli%20station%20mumbai%20railway&sig=868" alt="Khadavli" />
+          <span class="tag">Central Line</span>
+          <h3>Khadavli</h3>
+          <a class="btn btn-primary" href="central/khadavli.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Vasind%20station%20mumbai%20railway&sig=750" alt="Vasind" />
+          <span class="tag">Central Line</span>
+          <h3>Vasind</h3>
+          <a class="btn btn-primary" href="central/vasind.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Asangaon%20station%20mumbai%20railway&sig=990" alt="Asangaon" />
+          <span class="tag">Central Line</span>
+          <h3>Asangaon</h3>
+          <a class="btn btn-primary" href="central/asangaon.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Atgaon%20station%20mumbai%20railway&sig=272" alt="Atgaon" />
+          <span class="tag">Central Line</span>
+          <h3>Atgaon</h3>
+          <a class="btn btn-primary" href="central/atgaon.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Khardi%20station%20mumbai%20railway&sig=276" alt="Khardi" />
+          <span class="tag">Central Line</span>
+          <h3>Khardi</h3>
+          <a class="btn btn-primary" href="central/khardi.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Kasara%20station%20mumbai%20railway&sig=768" alt="Kasara" />
+          <span class="tag">Central Line</span>
+          <h3>Kasara</h3>
+          <a class="btn btn-primary" href="central/kasara.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Vithalwadi%20station%20mumbai%20railway&sig=761" alt="Vithalwadi" />
+          <span class="tag">Central Line</span>
+          <h3>Vithalwadi</h3>
+          <a class="btn btn-primary" href="central/vithalwadi.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Ulhasnagar%20station%20mumbai%20railway&sig=149" alt="Ulhasnagar" />
+          <span class="tag">Central Line</span>
+          <h3>Ulhasnagar</h3>
+          <a class="btn btn-primary" href="central/ulhasnagar.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Ambernath%20station%20mumbai%20railway&sig=446" alt="Ambernath" />
+          <span class="tag">Central Line</span>
+          <h3>Ambernath</h3>
+          <a class="btn btn-primary" href="central/ambernath.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Badlapur%20station%20mumbai%20railway&sig=776" alt="Badlapur" />
+          <span class="tag">Central Line</span>
+          <h3>Badlapur</h3>
+          <a class="btn btn-primary" href="central/badlapur.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Vangani%20station%20mumbai%20railway&sig=150" alt="Vangani" />
+          <span class="tag">Central Line</span>
+          <h3>Vangani</h3>
+          <a class="btn btn-primary" href="central/vangani.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Shelgaon%20station%20mumbai%20railway&sig=350" alt="Shelgaon" />
+          <span class="tag">Central Line</span>
+          <h3>Shelgaon</h3>
+          <a class="btn btn-primary" href="central/shelgaon.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Neral%20station%20mumbai%20railway&sig=736" alt="Neral" />
+          <span class="tag">Central Line</span>
+          <h3>Neral</h3>
+          <a class="btn btn-primary" href="central/neral.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Bhivpuri%20Road%20station%20mumbai%20railway&sig=407" alt="Bhivpuri Road" />
+          <span class="tag">Central Line</span>
+          <h3>Bhivpuri Road</h3>
+          <a class="btn btn-primary" href="central/bhivpuri-road.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Karjat%20station%20mumbai%20railway&sig=288" alt="Karjat" />
+          <span class="tag">Central Line</span>
+          <h3>Karjat</h3>
+          <a class="btn btn-primary" href="central/karjat.html">View Projects</a>
+        </article>
+        </div>
+    </main>
+    
+    
+<footer class="page">
+  <div class="footer-grid">
+    <div>
+      <img class="footer-logo" src="Logo/ChatGPT_Image_Feb_1__2026__02_28_40_PM-removebg-preview.png" alt="RC Brothers Realtors logo" />
+      <h3>RC Brothers Realtors</h3>
+      <p>Modern real estate discovery with verified listings and 0% brokerage.</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <p><a href="central/index.html">Home</a></p>
+      <p><a href="central/projects.html">Projects</a></p>
+      <p><a href="index.html#about">About Us</a></p>
+      <p><a href="central/contact.html">Contact Us</a></p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>Call: +91 8421753784</p>
+      <p>Email: rcbrothersrealtors@gmail.com</p>
+    </div>
+    
+    <div>
+      <h3>Service Areas</h3>
+      <p>Central Line</p>
+      <p>Western Line</p>
+      <p>Navi Mumbai</p>
+    </div>
+    <div>
+      <h3>Social</h3>
+      <div class="socials">
+        <span>f</span>
+        <span>in</span>
+        <span>ig</span>
+      </div>
+    </div>
+  </div>
+  <p>? 2026 RC Brothers Realtors. All rights reserved.</p>
+</footer>
+
+    <a class="fab" href="https://wa.me/918421753784" target="_blank" rel="noopener">WhatsApp</a>
+    <div class="mobile-bar"><a class="call" href="tel:+918421753784">Call Now</a><a class="whatsapp" href="https://wa.me/918421753784" target="_blank" rel="noopener">WhatsApp</a></div>
+    
+  
+<script>
+  (function () {
+    const slot = document.getElementById("sponsored-slot");
+    if (!slot) return;
+    fetch("sponsored.html")
+      .then((res) => res.text())
+      .then((html) => {
+        slot.innerHTML = html;
+      })
+      .catch(() => {});
+  })();
+</script>
+
+
+<script>
+  (function () {
+    const navItems = document.querySelectorAll(".nav-item");
+    navItems.forEach((item) => {
+      let timer;
+      item.addEventListener("mouseenter", () => {
+        clearTimeout(timer);
+        item.classList.add("open");
+      });
+      item.addEventListener("mouseleave", () => {
+        timer = setTimeout(() => item.classList.remove("open"), 800);
+      });
+      item.addEventListener("focusin", () => {
+        clearTimeout(timer);
+        item.classList.add("open");
+      });
+      item.addEventListener("focusout", () => {
+        timer = setTimeout(() => item.classList.remove("open"), 800);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RC Brothers Realtors | Navi Mumbai</title>
+    
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+
+:root {
+  --logo-size: 42px;
+  --footer-logo-size: 52px;
+  --bg: #f5f1eb;
+  --ink: #1e1a16;
+  --muted: #6c635c;
+  --accent: #cc4b2c;
+  --accent-2: #0c6b5a;
+  --card: #fff9f2;
+  --shadow: 0 16px 40px rgba(21, 16, 12, 0.12);
+  --radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top, #fff5ea 0%, var(--bg) 50%, #efe5da 100%);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  width: min(1220px, 92vw);
+  margin: 0 auto;
+  padding: 20px 0 70px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(245, 241, 235, 0.92);
+  backdrop-filter: blur(12px);
+  z-index: 50;
+  border-bottom: 1px solid rgba(30, 26, 22, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 0;
+  width: min(1220px, 92vw);
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: "Fraunces", serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+
+nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-weight: 600;
+  color: var(--muted);
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  display: grid;
+  gap: 6px;
+  background: white;
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 14px 28px rgba(21, 16, 12, 0.18);
+  min-width: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 60;
+}
+
+.dropdown a {
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.dropdown a:hover {
+  background: rgba(204, 75, 44, 0.1);
+  color: var(--accent);
+}
+
+.nav-item:hover .dropdown,
+.nav-item:focus-within .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+nav a {
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  background: rgba(204, 75, 44, 0.1);
+  color: var(--accent);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  align-items: center;
+  padding: 40px 0 30px;
+}
+
+.hero h1 {
+  font-family: "Fraunces", serif;
+  font-size: clamp(32px, 5vw, 54px);
+  line-height: 1.1;
+}
+
+.hero p {
+  color: var(--muted);
+  margin: 14px 0 24px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+  background: #fff1e6;
+  color: var(--accent);
+  border: 1px solid rgba(204, 75, 44, 0.18);
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: white;
+  border: none;
+  box-shadow: var(--shadow);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.section-title {
+  font-family: "Fraunces", serif;
+  font-size: 30px;
+  margin: 40px 0 10px;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 12px 30px rgba(21, 16, 12, 0.12);
+  display: grid;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(21, 16, 12, 0.18);
+}
+
+.card img {
+  width: 100%;
+  height: 140px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 18px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--accent-2);
+}
+
+.breadcrumbs {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 20px 0;
+}
+
+.search-filter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+
+.search-filter input,
+.search-filter select,
+.form-grid input,
+.form-grid textarea,
+.form-grid select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(30, 26, 22, 0.2);
+  font-family: "Manrope", sans-serif;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.form-grid textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.contact-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  background: white;
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 24px rgba(21, 16, 12, 0.12);
+}
+
+.contact-strip strong {
+  display: block;
+}
+
+.contact-strip .contact-action {
+  margin-left: auto;
+}
+
+footer {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(30, 26, 22, 0.12);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socials span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(204, 75, 44, 0.12);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25d366;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  z-index: 60;
+}
+
+.mobile-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid rgba(30, 26, 22, 0.1);
+  display: none;
+  gap: 10px;
+  padding: 12px 16px;
+  justify-content: space-between;
+  z-index: 55;
+}
+
+.mobile-bar a {
+  flex: 1;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.mobile-bar .call {
+  background: var(--accent);
+  color: white;
+}
+
+.mobile-bar .whatsapp {
+  background: #25d366;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+}
+
+@media (max-width: 700px) {
+  .mobile-bar {
+    display: flex;
+  }
+
+  .page {
+    padding-bottom: 100px;
+  }
+}
+
+
+.sponsored-slider {
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.sponsored-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: sponsoredScroll 24s linear infinite;
+}
+
+.sponsored-card {
+  flex: 0 0 auto;
+  width: min(560px, 85vw);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.sponsored-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes sponsoredScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+.nav-item.open .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 16px 0 100px;
+  }
+
+  .card img {
+    height: 120px;
+  }
+
+  .fab {
+    right: 12px;
+    bottom: 76px;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    
+<header>
+  <div class="header-inner">
+    <div class="logo"><img src="Logo/ChatGPT_Image_Feb_1__2026__02_28_40_PM-removebg-preview.png" alt="RC Brothers Realtors logo" /><span>RC Brothers Realtors</span></div>
+    
+<nav>
+  <a href="navi/index.html">Home</a>
+  <div class="nav-item">
+    <a class="nav-link" href="navi/index.html">Cities</a>
+    <div class="dropdown">
+      <a href="navi/central.html">Central Line</a>
+      <a href="navi/western.html">Western Line</a>
+      <a href="navi/navi.html">Navi Mumbai</a>
+    </div>
+  </div>
+  <a href="navi/projects.html">Projects</a>
+  <a href="index.html#about">About Us</a>
+  <a href="navi/contact.html">Contact Us</a>
+</nav>
+
+  </div>
+</header>
+
+    
+    <main class="page">
+<div id="sponsored-slot"></div>
+      <div class="breadcrumbs">Home &gt; Cities &gt; Navi Mumbai</div>
+      <h1 class="section-title">Navi Mumbai Stations</h1>
+      <p class="section-subtitle">Select a station to view projects.</p>
+      <div class="cards-grid">
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?CST%20station%20mumbai%20railway&sig=862" alt="CST" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>CST</h3>
+          <a class="btn btn-primary" href="navi/cst.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Dockyard%20Road%20station%20mumbai%20railway&sig=366" alt="Dockyard Road" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Dockyard Road</h3>
+          <a class="btn btn-primary" href="navi/dockyard-road.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Reay%20Road%20station%20mumbai%20railway&sig=610" alt="Reay Road" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Reay Road</h3>
+          <a class="btn btn-primary" href="navi/reay-road.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Cotton%20Green%20station%20mumbai%20railway&sig=118" alt="Cotton Green" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Cotton Green</h3>
+          <a class="btn btn-primary" href="navi/cotton-green.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Sewri%20station%20mumbai%20railway&sig=8" alt="Sewri" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Sewri</h3>
+          <a class="btn btn-primary" href="navi/sewri.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Wadala%20Road%20station%20mumbai%20railway&sig=864" alt="Wadala Road" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Wadala Road</h3>
+          <a class="btn btn-primary" href="navi/wadala-road.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Guru%20Tegh%20Bahadur%20Nagar%20%28GTB%20Nagar%29%20station%20mumbai%20railway&sig=796" alt="Guru Tegh Bahadur Nagar (GTB Nagar)" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Guru Tegh Bahadur Nagar (GTB Nagar)</h3>
+          <a class="btn btn-primary" href="navi/guru-tegh-bahadur-nagar-gtb-nagar.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Chunabhatti%20station%20mumbai%20railway&sig=964" alt="Chunabhatti" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Chunabhatti</h3>
+          <a class="btn btn-primary" href="navi/chunabhatti.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Kurla%20station%20mumbai%20railway&sig=413" alt="Kurla" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Kurla</h3>
+          <a class="btn btn-primary" href="navi/kurla.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Tilak%20Nagar%20station%20mumbai%20railway&sig=171" alt="Tilak Nagar" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Tilak Nagar</h3>
+          <a class="btn btn-primary" href="navi/tilak-nagar.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Chembur%20station%20mumbai%20railway&sig=997" alt="Chembur" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Chembur</h3>
+          <a class="btn btn-primary" href="navi/chembur.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Govandi%20station%20mumbai%20railway&sig=871" alt="Govandi" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Govandi</h3>
+          <a class="btn btn-primary" href="navi/govandi.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Mankhurd%20station%20mumbai%20railway&sig=58" alt="Mankhurd" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Mankhurd</h3>
+          <a class="btn btn-primary" href="navi/mankhurd.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Vashi%20station%20mumbai%20railway&sig=987" alt="Vashi" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Vashi</h3>
+          <a class="btn btn-primary" href="navi/vashi.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Sanpada%20station%20mumbai%20railway&sig=133" alt="Sanpada" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Sanpada</h3>
+          <a class="btn btn-primary" href="navi/sanpada.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Juinagar%20station%20mumbai%20railway&sig=287" alt="Juinagar" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Juinagar</h3>
+          <a class="btn btn-primary" href="navi/juinagar.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Nerul%20station%20mumbai%20railway&sig=82" alt="Nerul" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Nerul</h3>
+          <a class="btn btn-primary" href="navi/nerul.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Seawoods-Darave%20station%20mumbai%20railway&sig=485" alt="Seawoods-Darave" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Seawoods-Darave</h3>
+          <a class="btn btn-primary" href="navi/seawoods-darave.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Belapur%20CBD%20station%20mumbai%20railway&sig=420" alt="Belapur CBD" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Belapur CBD</h3>
+          <a class="btn btn-primary" href="navi/belapur-cbd.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Kharghar%20station%20mumbai%20railway&sig=292" alt="Kharghar" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Kharghar</h3>
+          <a class="btn btn-primary" href="navi/kharghar.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Mansarovar%20station%20mumbai%20railway&sig=632" alt="Mansarovar" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Mansarovar</h3>
+          <a class="btn btn-primary" href="navi/mansarovar.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Khandeshwar%20station%20mumbai%20railway&sig=74" alt="Khandeshwar" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Khandeshwar</h3>
+          <a class="btn btn-primary" href="navi/khandeshwar.html">View Projects</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://source.unsplash.com/600x400/?Panvel%20station%20mumbai%20railway&sig=256" alt="Panvel" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Panvel</h3>
+          <a class="btn btn-primary" href="navi/panvel.html">View Projects</a>
+        </article>
+        </div>
+    </main>
+    
+    
+<footer class="page">
+  <div class="footer-grid">
+    <div>
+      <img class="footer-logo" src="Logo/ChatGPT_Image_Feb_1__2026__02_28_40_PM-removebg-preview.png" alt="RC Brothers Realtors logo" />
+      <h3>RC Brothers Realtors</h3>
+      <p>Modern real estate discovery with verified listings and 0% brokerage.</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <p><a href="navi/index.html">Home</a></p>
+      <p><a href="navi/projects.html">Projects</a></p>
+      <p><a href="index.html#about">About Us</a></p>
+      <p><a href="navi/contact.html">Contact Us</a></p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>Call: +91 8421753784</p>
+      <p>Email: rcbrothersrealtors@gmail.com</p>
+    </div>
+    
+    <div>
+      <h3>Service Areas</h3>
+      <p>Central Line</p>
+      <p>Western Line</p>
+      <p>Navi Mumbai</p>
+    </div>
+    <div>
+      <h3>Social</h3>
+      <div class="socials">
+        <span>f</span>
+        <span>in</span>
+        <span>ig</span>
+      </div>
+    </div>
+  </div>
+  <p>? 2026 RC Brothers Realtors. All rights reserved.</p>
+</footer>
+
+    <a class="fab" href="https://wa.me/918421753784" target="_blank" rel="noopener">WhatsApp</a>
+    <div class="mobile-bar"><a class="call" href="tel:+918421753784">Call Now</a><a class="whatsapp" href="https://wa.me/918421753784" target="_blank" rel="noopener">WhatsApp</a></div>
+    
+  
+<script>
+  (function () {
+    const slot = document.getElementById("sponsored-slot");
+    if (!slot) return;
+    fetch("sponsored.html")
+      .then((res) => res.text())
+      .then((html) => {
+        slot.innerHTML = html;
+      })
+      .catch(() => {});
+  })();
+</script>
+
+
+<script>
+  (function () {
+    const navItems = document.querySelectorAll(".nav-item");
+    navItems.forEach((item) => {
+      let timer;
+      item.addEventListener("mouseenter", () => {
+        clearTimeout(timer);
+        item.classList.add("open");
+      });
+      item.addEventListener("mouseleave", () => {
+        timer = setTimeout(() => item.classList.remove("open"), 800);
+      });
+      item.addEventListener("focusin", () => {
+        clearTimeout(timer);
+        item.classList.add("open");
+      });
+      item.addEventListener("focusout", () => {
+        timer = setTimeout(() => item.classList.remove("open"), 800);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

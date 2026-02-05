@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RC Brothers Realtors | Cities</title>
+    
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+
+:root {
+  --logo-size: 42px;
+  --footer-logo-size: 52px;
+  --bg: #f5f1eb;
+  --ink: #1e1a16;
+  --muted: #6c635c;
+  --accent: #cc4b2c;
+  --accent-2: #0c6b5a;
+  --card: #fff9f2;
+  --shadow: 0 16px 40px rgba(21, 16, 12, 0.12);
+  --radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top, #fff5ea 0%, var(--bg) 50%, #efe5da 100%);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  width: min(1220px, 92vw);
+  margin: 0 auto;
+  padding: 20px 0 70px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(245, 241, 235, 0.92);
+  backdrop-filter: blur(12px);
+  z-index: 50;
+  border-bottom: 1px solid rgba(30, 26, 22, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 0;
+  width: min(1220px, 92vw);
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: "Fraunces", serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+
+
+nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-weight: 600;
+  color: var(--muted);
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  display: grid;
+  gap: 6px;
+  background: white;
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 14px 28px rgba(21, 16, 12, 0.18);
+  min-width: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 60;
+}
+
+.dropdown a {
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.dropdown a:hover {
+  background: rgba(204, 75, 44, 0.1);
+  color: var(--accent);
+}
+
+.nav-item:hover .dropdown,
+.nav-item:focus-within .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+nav a {
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  background: rgba(204, 75, 44, 0.1);
+  color: var(--accent);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  align-items: center;
+  padding: 40px 0 30px;
+}
+
+.hero h1 {
+  font-family: "Fraunces", serif;
+  font-size: clamp(32px, 5vw, 54px);
+  line-height: 1.1;
+}
+
+.hero p {
+  color: var(--muted);
+  margin: 14px 0 24px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+  background: #fff1e6;
+  color: var(--accent);
+  border: 1px solid rgba(204, 75, 44, 0.18);
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: white;
+  border: none;
+  box-shadow: var(--shadow);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.section-title {
+  font-family: "Fraunces", serif;
+  font-size: 30px;
+  margin: 40px 0 10px;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 12px 30px rgba(21, 16, 12, 0.12);
+  display: grid;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(21, 16, 12, 0.18);
+}
+
+.card img {
+  width: 100%;
+  height: 140px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 18px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--accent-2);
+}
+
+.breadcrumbs {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 20px 0;
+}
+
+.search-filter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+
+.search-filter input,
+.search-filter select,
+.form-grid input,
+.form-grid textarea,
+.form-grid select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(30, 26, 22, 0.2);
+  font-family: "Manrope", sans-serif;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.form-grid textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.contact-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  background: white;
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 24px rgba(21, 16, 12, 0.12);
+}
+
+.contact-strip strong {
+  display: block;
+}
+
+.contact-strip .contact-action {
+  margin-left: auto;
+}
+
+footer {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(30, 26, 22, 0.12);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socials span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(204, 75, 44, 0.12);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(204, 75, 44, 0.12);
+  color: var(--accent);
+}
+
+.socials svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.footer-bottom {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25d366;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  z-index: 60;
+}
+
+.mobile-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid rgba(30, 26, 22, 0.1);
+  display: none;
+  gap: 10px;
+  padding: 12px 16px;
+  justify-content: space-between;
+  z-index: 55;
+}
+
+.mobile-bar a {
+  flex: 1;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.mobile-bar .call {
+  background: var(--accent);
+  color: white;
+}
+
+.mobile-bar .whatsapp {
+  background: #25d366;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+}
+
+@media (max-width: 700px) {
+  .mobile-bar {
+    display: flex;
+  }
+
+  .page {
+    padding-bottom: 100px;
+  }
+}
+
+
+.sponsored-slider {
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.sponsored-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: sponsoredScroll 24s linear infinite;
+}
+
+.sponsored-card {
+  flex: 0 0 auto;
+  width: min(560px, 85vw);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.sponsored-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes sponsoredScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+.nav-item.open .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.trust-badge {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 0 10px 22px rgba(21, 16, 12, 0.12);
+  display: grid;
+  gap: 8px;
+  align-items: center;
+  justify-items: center;
+}
+
+.trust-badge img {
+  width: 120px;
+  height: 46px;
+  object-fit: contain;
+  filter: grayscale(10%);
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.cert-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  align-items: center;
+}
+
+.about-photo {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.newsletter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  align-items: center;
+  background: linear-gradient(120deg, #ffe9d6, #fff7ee);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.newsletter-copy h3 {
+  font-family: "Fraunces", serif;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.newsletter-copy p {
+  color: var(--muted);
+}
+
+.newsletter-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.newsletter-form input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+}
+
+.newsletter-form button {
+  padding: 14px 18px;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 16px 0 100px;
+  }
+
+  .card img {
+    height: 120px;
+  }
+
+  .fab {
+    right: 12px;
+    bottom: 76px;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    
+<header>
+  <div class="header-inner">
+    <div class="logo"><img src="Logo/ChatGPT_Image_Feb_1__2026__02_28_40_PM-removebg-preview.png" alt="RC Brothers Realtors logo" /><span></span></div>
+    
+<nav>
+  <a href="index.html">Home</a>
+  <div class="nav-item">
+    <a class="nav-link" href="index.html">Cities</a>
+    <div class="dropdown">
+      <a href="central.html">Central Line</a>
+      <a href="western.html">Western Line</a>
+      <a href="navi.html">Navi Mumbai</a>
+    </div>
+  </div>
+  <a href="projects.html">Projects</a>
+  <a href="index.html#about">About Us</a>
+  <a href="contact.html">Contact Us</a>
+</nav>
+
+  </div>
+</header>
+
+    
+    <main class="page">
+      <section class="hero">
+        <div>
+          <h1>Explore Projects by City Lines</h1>
+          <p>Choose a railway line to explore projects by stations.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="central.html">Central Line</a>
+            <a class="btn btn-secondary" href="western.html">Western Line</a>
+            <a class="btn btn-secondary" href="navi.html">Navi Mumbai</a>
+          </div>
+        </div>
+        <div class="panel">
+          <span class="tag">Limited-Time Advantage</span>
+          <h3>Go through us and unlock huge discounts.</h3>
+          <p>Builder-direct pricing, exclusive offers, and zero brokerage benefits.</p>
+          <p><strong>Humne logo se brokerage nahi, vishwas jeeta hai. Trust and legacy of RC Brothers..</strong> </p>
+        </div>
+      </section>
+
+      
+    <div class="contact-strip">
+      <div>
+        <strong>Call us</strong>
+        <a href="tel:+918421753784">+91 8421753784</a>
+      </div>
+      <div>
+        <strong>Email</strong>
+        <a href="mailto:rcbrothersrealtors@gmail.com">rcbrothersrealtors@gmail.com</a>
+      </div>
+      <div class="contact-action">
+        <a class="btn btn-whatsapp" href="https://wa.me/918421753784" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+    </div>
+    
+<section class="sponsored" style="margin:32px 0;">
+  <span class="tag">Sponsored Highlight</span>
+  <h2 class="section-title" style="margin-top:10px;">Premium Sponsored Project</h2>
+  <p class="section-subtitle">Feature a builder-sponsored project here with big visuals and strong CTA.</p>
+  <div class="sponsored-slider" id="sponsoredSlider">
+    <div class="sponsored-track" id="sponsoredTrack">
+      <div class="sponsored-card"><img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1400&q=80" alt="Sponsored Project 1" /></div>
+      <div class="sponsored-card"><img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=1400&q=80" alt="Sponsored Project 2" /></div>
+      <div class="sponsored-card"><img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80" alt="Sponsored Project 3" /></div>
+      <div class="sponsored-card"><img src="https://images.unsplash.com/photo-1464938050520-ef2270bb5331?auto=format&fit=crop&w=1400&q=80" alt="Sponsored Project 4" /></div>
+    </div>
+  </div>
+  <div style="margin-top:14px;">
+    <a class="btn btn-primary" href="https://wa.me/918421753784?text=Hi%20RC%20Brothers%20Realtors%2C%20I%20want%20details%20about%20the%20sponsored%20project." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+  </div>
+</section>
+      
+<div class="breadcrumbs">Home &gt; Cities</div>
+
+
+
+
+
+
+      <section>
+        <h2 class="section-title">Explore Projects by City Lines</h2>
+        <p class="section-subtitle">Choose a railway line to explore projects by stations.</p>
+        <div class="cards-grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=900&q=80" alt="Central Line" />
+          <span class="tag">Central Line</span>
+          <h3>Central Line</h3>
+          <p>Explore stations and verified projects along the Central Line corridor.</p>
+          <a class="btn btn-primary" href="central.html">View Stations</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Western Line" />
+          <span class="tag">Western Line</span>
+          <h3>Western Line</h3>
+          <p>Explore stations and verified projects along the Western Line corridor.</p>
+          <a class="btn btn-primary" href="western.html">View Stations</a>
+        </article>
+        
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Navi Mumbai" />
+          <span class="tag">Navi Mumbai</span>
+          <h3>Navi Mumbai</h3>
+          <p>Explore stations and verified projects along the Navi Mumbai corridor.</p>
+          <a class="btn btn-primary" href="navi.html">View Stations</a>
+        </article>
+        </div>
+      </section>
+  <section>
+    <h2 class="section-title">Certificates & Recognition</h2>
+    <p class="section-subtitle">Showcase your certificates, awards, and achievements here.</p>
+    <div class="cert-grid">
+    <article class="card cert-card">
+      <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80" alt="Certificate showcase" />
+      <h3>RERA Certification</h3>
+      <p>Highlight your official certifications and compliance.</p>
+    </article>
+    <article class="card cert-card">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Award showcase" />
+      <h3>Top Broker Award</h3>
+      <p>Display awards and recognitions with confidence.</p>
+    </article>
+    <article class="card cert-card">
+      <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80" alt="Office showcase" />
+      <h3>Company Profile</h3>
+      <p>Use this space for company photos or team highlights.</p>
+    </article>
+    </div>
+  </section>
+  <section id="about">
+    <h2 class="section-title">About Us</h2>
+    <p class="section-subtitle">Zero brokerage, verified listings, and expert guidance.</p>
+    <div class="two-col">
+      <div>
+        <p>
+          RC Brothers Realtors helps buyers find the right home with transparent
+          pricing, builder-direct deals, and dedicated support at every step.
+        </p>
+        <p>
+          We focus on new and under-construction projects so you get the best
+          offers, clearer documentation, and verified inventories.
+        </p>
+        <a class="btn btn-primary" href="contact.html">Talk to Our Team</a>
+      </div>
+      <div>
+        <img
+          class="about-photo"
+          src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80"
+          alt="RC Brothers Realtors team"
+        />
+      </div>
+    </div>
+  </section>
+<section>
+  <h2 class="section-title">Trusted By Leading Builders</h2>
+  <p class="section-subtitle">We collaborate with top developers across Mumbai and Navi Mumbai.</p>
+  <div class="trust-grid">
+    <div class="trust-badge">
+      <img src="https://dummyimage.com/240x90/ffffff/111111&text=Ajmera" alt="Ajmera Group logo" />
+      <span>Ajmera Group</span>
+    </div>
+    <div class="trust-badge">
+      <img src="https://dummyimage.com/240x90/ffffff/111111&text=GBK" alt="GBK Group logo" />
+      <span>GBK Group</span>
+    </div>
+    <div class="trust-badge">
+      <img src="https://dummyimage.com/240x90/ffffff/111111&text=Precious" alt="Precious Group logo" />
+      <span>Precious Group</span>
+    </div>
+    <div class="trust-badge">
+      <img src="https://dummyimage.com/240x90/ffffff/111111&text=Regency" alt="Regency Group logo" />
+      <span>Regency Group</span>
+    </div>
+    <div class="trust-badge">
+      <img src="https://dummyimage.com/240x90/ffffff/111111&text=Lodha" alt="Lodha Group logo" />
+      <span>Lodha Group</span>
+    </div>
+    <div class="trust-badge">
+      <img src="https://dummyimage.com/240x90/ffffff/111111&text=Godrej" alt="Godrej Properties logo" />
+      <span>Godrej Properties</span>
+    </div>
+    <div class="trust-badge">
+      <img src="https://dummyimage.com/240x90/ffffff/111111&text=Rustomjee" alt="Rustomjee logo" />
+      <span>Rustomjee</span>
+    </div>
+    <div class="trust-badge">
+      <img src="https://dummyimage.com/240x90/ffffff/111111&text=Kalpataru" alt="Kalpataru logo" />
+      <span>Kalpataru</span>
+    </div>
+  </div>
+</section>
+  
+<section>
+  <h2 class="section-title">Newsletter</h2>
+  <p class="section-subtitle">Get new launch alerts, price drops, and site visit updates.</p>
+  <div class="newsletter">
+    <div class="newsletter-copy">
+      <h3>Stay ahead of new launches</h3>
+      <p>Weekly curated updates from Central, Western, and Navi Mumbai corridors.</p>
+    </div>
+    <div class="newsletter-form">
+      <input type="text" placeholder="Full Name" />
+      <input type="email" placeholder="Email Address" />
+      <button class="btn btn-primary" type="button">Subscribe</button>
+    </div>
+  </div>
+</section>
+
+</main>
+    
+    
+<footer class="page">
+  <div class="footer-grid">
+    <div>
+      <img class="footer-logo" src="Logo/ChatGPT_Image_Feb_1__2026__02_28_40_PM-removebg-preview.png" alt="RC Brothers Realtors logo" />
+      <h3>RC Brothers Realtors</h3>
+      <p>Modern real estate discovery with verified listings and 0% brokerage.</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <p><a href="index.html">Home</a></p>
+      <p><a href="projects.html">Projects</a></p>
+      <p><a href="index.html#about">About Us</a></p>
+      <p><a href="contact.html">Contact Us</a></p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>Call: +91 8421753784</p>
+      <p>Email: rcbrothersrealtors@gmail.com</p>
+    </div>
+    
+    <div>
+      <h3>Service Areas</h3>
+      <p>Central Line</p>
+      <p>Western Line</p>
+      <p>Navi Mumbai</p>
+    </div>
+    <div>
+      <h3>Social</h3>
+      <div class="socials">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-2.9h2V9.8c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2v1.5h2.6l-.4 2.9h-2.2v7A10 10 0 0 0 22 12z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7zm5 3.5A3.5 3.5 0 1 1 8.5 12 3.5 3.5 0 0 1 12 8.5zm0 2A1.5 1.5 0 1 0 13.5 12 1.5 1.5 0 0 0 12 10.5zm4.5-3.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
+          </svg>
+        </a>
+        <a href="https://x.com" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18.2 3H21l-6.2 7.1L22 21h-6.3l-4.1-5.5L6.7 21H4l6.6-7.5L2 3h6.4l3.7 5 4.1-5zm-1.1 16.1h1.8L7 4.9H5.2l11.9 14.2z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <p class="footer-bottom">© 2026 RC Brothers Realtors. All rights reserved. • Made by Lexino Technologies • +91 7208984270</p>
+</footer>
+
+    <a class="fab" href="https://wa.me/918421753784" target="_blank" rel="noopener">WhatsApp</a>
+    <div class="mobile-bar"><a class="call" href="tel:+918421753784">Call Now</a><a class="whatsapp" href="https://wa.me/918421753784" target="_blank" rel="noopener">WhatsApp</a></div>
+    
+  
+<script>
+  (function () {
+    const slot = document.getElementById("sponsored-slot");
+    if (!slot) return;
+    fetch("sponsored.html")
+      .then((res) => res.text())
+      .then((html) => {
+        slot.innerHTML = html;
+      })
+      .catch(() => {});
+  })();
+</script>
+
+
+<script>
+  (function () {
+    const navItems = document.querySelectorAll(".nav-item");
+    navItems.forEach((item) => {
+      let timer;
+      item.addEventListener("mouseenter", () => {
+        clearTimeout(timer);
+        item.classList.add("open");
+      });
+      item.addEventListener("mouseleave", () => {
+        timer = setTimeout(() => item.classList.remove("open"), 800);
+      });
+      item.addEventListener("focusin", () => {
+        clearTimeout(timer);
+        item.classList.add("open");
+      });
+      item.addEventListener("focusout", () => {
+        timer = setTimeout(() => item.classList.remove("open"), 800);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

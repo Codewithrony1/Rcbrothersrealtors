@@ -1,0 +1,39 @@
+<section class="sponsored" style="margin:32px 0;">
+  <span class="tag">Sponsored Highlight</span>
+  <h2 class="section-title" style="margin-top:10px;">Premium Sponsored Project</h2>
+  <p class="section-subtitle">Feature a builder-sponsored project here with big visuals and strong CTA.</p>
+  <div class="sponsored-slider" id="sponsoredSlider">
+    <div class="sponsored-track" id="sponsoredTrack">
+      <div class="sponsored-card"><img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1400&q=80" alt="Sponsored Project 1" /></div>
+      <div class="sponsored-card"><img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=1400&q=80" alt="Sponsored Project 2" /></div>
+      <div class="sponsored-card"><img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80" alt="Sponsored Project 3" /></div>
+      <div class="sponsored-card"><img src="https://images.unsplash.com/photo-1464938050520-ef2270bb5331?auto=format&fit=crop&w=1400&q=80" alt="Sponsored Project 4" /></div>
+    </div>
+  </div>
+  <div style="margin-top:14px;">
+    <a class="btn btn-primary" href="https://wa.me/918421753784?text=Hi%20RC%20Brothers%20Realtors%2C%20I%20want%20details%20about%20the%20sponsored%20project." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+  </div>
+</section>
+<script>
+  (function () {
+    const track = document.getElementById("sponsoredTrack");
+    if (!track) return;
+    const cards = Array.from(track.children);
+    let index = 0;
+
+    function updatePosition() {
+      const cardWidth = cards[0].getBoundingClientRect().width;
+      const gap = 16;
+      track.style.transform = `translateX(${-index * (cardWidth + gap)}px)`;
+    }
+
+    function nextSlide() {
+      index = (index + 1) % cards.length;
+      updatePosition();
+    }
+
+    window.addEventListener("resize", updatePosition);
+    updatePosition();
+    setInterval(nextSlide, 3500);
+  })();
+</script>
